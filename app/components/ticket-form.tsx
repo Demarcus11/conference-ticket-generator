@@ -108,7 +108,7 @@ export const TicketForm = () => {
           render={() => (
             <FormItem>
               <FormLabel
-                className="data-[error=true]:text-neutral-300"
+                className="data-[error=true]:text-neutral-300 text-lg"
                 id="file-input"
               >
                 Upload Avatar
@@ -117,7 +117,7 @@ export const TicketForm = () => {
                 <div
                   {...(!imagePreview ? getRootProps() : {})}
                   className={cn(
-                    "border-2 border-dashed border-neutral-700 rounded-md  transition-colors grid gap-5 place-content-center p-10 bg-white/5",
+                    "border-2 border-dashed border-neutral-700 rounded-md focus-visible:outline-2 focus-visible:outline-neutral-500 focus-visible:outline-offset-5 focus-visible:ring-0 transition-colors grid gap-5 place-content-center p-10 bg-white/5",
                     !imagePreview && "hover:bg-white/20"
                   )}
                 >
@@ -152,7 +152,11 @@ export const TicketForm = () => {
                       <UploadIcon className="bg-white/20 border border-white/20 size-12 rounded-md p-2" />
                     )}
                   </div>
-                  <input {...getInputProps()} accept="image/jpg, image/png" />
+                  <input
+                    {...getInputProps()}
+                    accept="image/jpg, image/png"
+                    className="focus-visible:outline-none focus-visible:border-0 focus-visible:ring-0"
+                  />
                   {isDragActive ? (
                     <p>Drop the file here ...</p>
                   ) : (
@@ -164,7 +168,7 @@ export const TicketForm = () => {
                   )}
                 </div>
               </FormControl>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 focus-visible:outline-none focus-visible:border-0">
                 {!form.formState.errors.avatar ? (
                   <p className="text-sm flex items-center gap-2 text-neutral-500">
                     <InfoIcon className="size-4" />
@@ -186,12 +190,12 @@ export const TicketForm = () => {
           name="fullName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="data-[error=true]:text-neutral-300">
+              <FormLabel className="data-[error=true]:text-neutral-300 text-lg">
                 Full Name
               </FormLabel>
               <FormControl>
                 <Input
-                  className="aria-invalid:ring-orange-500/20 aria-invalid:border-orange-500 bg-white/10 placeholder:text-neutral-500"
+                  className="aria-invalid:ring-orange-500/20 aria-invalid:border-orange-500 bg-white/10 placeholder:text-neutral-500 focus-visible:outline focus-visible:outline-neutral-500 focus-visible:outline-offset-3 focus-visible:ring-0"
                   {...field}
                 />
               </FormControl>
@@ -210,13 +214,13 @@ export const TicketForm = () => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="data-[error=true]:text-neutral-300">
+              <FormLabel className="data-[error=true]:text-neutral-300 text-lg">
                 Email Address
               </FormLabel>
               <FormControl>
                 <Input
                   placeholder="example@email.com"
-                  className="aria-invalid:ring-orange-500/20 aria-invalid:border-orange-500 bg-white/10 placeholder:text-neutral-500"
+                  className="aria-invalid:ring-orange-500/20 aria-invalid:border-orange-500 bg-white/10 placeholder:text-neutral-500 focus-visible:outline focus-visible:outline-neutral-500 focus-visible:outline-offset-3 focus-visible:ring-0"
                   {...field}
                 />
               </FormControl>
@@ -235,13 +239,13 @@ export const TicketForm = () => {
           name="githubUsername"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="data-[error=true]:text-neutral-300">
+              <FormLabel className="data-[error=true]:text-neutral-300 text-lg">
                 GitHub Username
               </FormLabel>
               <FormControl>
                 <Input
                   placeholder="@yourusername"
-                  className="aria-invalid:ring-orange-500/20 aria-invalid:border-orange-500 bg-white/10 placeholder:text-neutral-500"
+                  className="aria-invalid:ring-orange-500/20 aria-invalid:border-orange-500 bg-white/10 placeholder:text-neutral-500 focus-visible:outline focus-visible:outline-neutral-500 focus-visible:outline-offset-3 focus-visible:ring-0"
                   {...field}
                 />
               </FormControl>
@@ -257,7 +261,7 @@ export const TicketForm = () => {
 
         <Button
           type="submit"
-          className="w-full bg-orange-700 text-neutral-900 cursor-pointer hover:bg-orange-500"
+          className="w-full bg-orange-700 text-neutral-900 cursor-pointer hover:bg-orange-500 focus-visible:outline focus-visible:outline-neutral-300 focus-visible:outline-offset-3 focus-visible:ring-0"
         >
           Generate My Ticket
         </Button>
